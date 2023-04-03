@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "statscend"
+version = "0.1.0"
+license = {file = "LICENSE"}
+authors = [
+  { name="Hashim Puthiyakath", email="hashputhiyakath@gmail.com" },
+]
+description = "A Python package for performing various statistical analyses"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "pandas",
+  "seaborn",
+  "numpy",
+  "pingouin",
+  "statsmodels",
+  "sklearn",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/hashimputhiyakath/statscend"
+"Bug Tracker" = "https://github.com/hashimputhiyakath/statscend/issues"
