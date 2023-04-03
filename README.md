@@ -7,9 +7,29 @@ Under the hood, **statscend** utiize the `statsmodels` and `sklearn` libraries t
 
 ## Installation
 
-You can install this package using pip. Open a terminal or command prompt and type:
+You can install Statscent using pip. First, make sure you have Python 3.x and pip installed on your system. Then, open a terminal window and run the following command:
 
-`pip install regression_analysis`
+`pip install statscend`
+
+This will download and install the latest version of the Statscent package and its dependencies. If you prefer to install a specific version of the package, you can specify the version number using pip:
+
+`pip install statscent==1.0.0`
+
+Once you've installed Statscent, you can import it in your Python code using the following statement:
+
+`import statscent`
+
+However, since the package name is quite long, you may want to use a shorter alias for convenience. We suggest using st as the alias, since this follows the same naming convention used by other popular data analysis libraries like pandas (pd) and numpy (np).
+
+Here's an example of how to import Statscent with the st alias:
+
+`import statscent as st`
+
+This will allow you to use the Statscent package in your code using the shorter st alias, like so:
+
+`st.linear_regression(data, x y)`
+
+While you are free to use any alias you prefer, we believe that using `st` will help to ensure a smooth and consistent experience for all Statscent users.
 
 ---
 
@@ -19,6 +39,7 @@ You can install this package using pip. Open a terminal or command prompt and ty
 - pandas
 - statsmodels
 - sklearn
+- seaborn
 
 ---
 
