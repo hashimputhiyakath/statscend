@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 
-def multi_logistic_regression(data, x, y):
+def mn_logistic_regression(data, x, y):
     # Define dependent and independent variables
     y_var = data[y]
     x_vars = data[x]
@@ -47,4 +47,4 @@ def multi_logistic_regression(data, x, y):
     coefficients_table = pd.concat(
         [df for df in coefficients_tables], keys=dv_levels)
 
-    return {'summary_table': summary_table, 'coefficients_table': coefficients_table}
+    return {'summary_table': summary_table, 'model_coefficients': coefficients_table}

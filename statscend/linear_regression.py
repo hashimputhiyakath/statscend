@@ -50,8 +50,24 @@ def linear_regression(data, x, y):
         model.summary().tables[2].as_html(), header=None, index_col=None)[0]
     diagnostics_table.columns = ['Statistic', 'Value', 'Statistic', 'Value']
 
+    # Table 4: overall model fit
+    fvalue = model.fvalue.round(3)
+    pvalue = model.f_pvalue.round(3)
+    df_model = int(model.df_model)
+    df_resid = int(model.df_resid)
+
+    r_squared = model.rsquared.round(3)
+    r = np.sqrt(r_squared).round(3)
+    r_squared_adj = model.rsquared_adj.round(3)
+
+    overall_model_fit = [['R', 'R-squared', 'Adj. R-squared', 'F-statistic', 'p-value', 'df-model', 'df-resid'],
+                         [r, r_squared, r_squared_adj, fvalue, pvalue, df_model, df_resid]]
+    overall_model_fit = pd.DataFrame(
+        overall_model_fit[1:], columns=overall_model_fit[0])
+
     results = {}
-    results['coefficients_table'] = coefficients_table.round(3)
+    results['overall_model_fit'] = overall_model_fit
     results['summary_table'] = summary_table.round(3)
+    results['coefficients_table'] = coefficients_table.round(3)
     results['diagnostics_table'] = diagnostics_table.round(3)
     return results

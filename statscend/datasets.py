@@ -21,18 +21,15 @@ def data(name):
         If the provided dataset name is not supported.
     """
     if name == 'penguins':
-        penguins = sns.load_dataset('penguins')
-        penguins['body_mass_g'] = penguins['body_mass_g']/1000
-        penguins.rename(columns={
-            'bill_length_mm': 'bill_length',
-            'bill_depth_mm': 'bill_depth',
-            'flipper_length_mm': 'flipper_length',
-            'body_mass_g': 'body_mass'
-        }, inplace=True)
-        return penguins
-
+        return sns.load_dataset('penguins')
     elif name == 'tips':
         return sns.load_dataset('tips')
+    elif name == 'iris':
+        return sns.load_dataset('iris')
+    elif name == 'titanic':
+        return sns.load_dataset('titanic')
+    elif name == 'anscombe':
+        return sns.load_dataset('anscombe')
     else:
         raise ValueError(
-            f"Unsupported dataset name: {name}. Currently supported datasets are 'penguins' and 'tips'.")
+            f"Unsupported dataset name: {name}. Currently supported datasets are 'penguins', 'tips, 'iris', titanic, and 'anscombe'.")

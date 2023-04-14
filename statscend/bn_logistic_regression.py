@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.metrics import confusion_matrix
 
 
-def logistic_regression(data, x, y, y_dummy=False):
+def bn_logistic_regression(data, x, y, y_dummy=False):
 
     data.dropna(inplace=True)
     x = data[x]
@@ -51,7 +51,7 @@ def logistic_regression(data, x, y, y_dummy=False):
         (cmdf.iloc[1, 1]/(cmdf.iloc[1, 0] + cmdf.iloc[1, 1])) * 100).round(3)
 
     # Calculate predictive measures from classification table
-    accuracy = ((cmdf['%Correct'].mean())/100).round(3)
+    accuracy = ((cmdf.iloc[0, 0] + cmdf.iloc[1, 1]) / np.sum(cm)).round(3)
     specificity = ((cmdf['%Correct'][0])/100).round(3)
     sensitivity = ((cmdf['%Correct'][1])/100).round(3)
 
@@ -63,11 +63,22 @@ def logistic_regression(data, x, y, y_dummy=False):
 
     predictive_measures_table = pd.DataFrame(predictive_measures)
 
+    overall_model_test = pd.DataFrame({
+        'Deviance': -2 * model.llf,
+        'AIC': model.aic,
+
+        'Chi Squared': [round(model.llr, 3)],
+        'df': [int(model.df_model)],
+        'p': [round(model.llr_pvalue, 4)],
+
+    })
+
     results_dict = {
-        "summary_table": summary_table,
+        "overall_model_test": overall_model_test,
         "coefficients_table": coefficients_table,
         "predictive_measures_table": predictive_measures_table,
-        "classification_table": cmdf
+        "classification_table": cmdf,
+        "summary_table": summary_table,
     }
 
     return results_dict
