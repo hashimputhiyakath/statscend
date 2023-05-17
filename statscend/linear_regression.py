@@ -65,9 +65,17 @@ def linear_regression(data, x, y):
     overall_model_fit = pd.DataFrame(
         overall_model_fit[1:], columns=overall_model_fit[0])
 
+    # Table 5 Residuals table
+    fittedvalues = model.fittedvalues
+    residuals = model.resid
+    residuals_table = pd.DataFrame(
+        {'Fitted Values': model.fittedvalues, 'Residuals': model.resid})
+
     results = {}
     results['overall_model_fit'] = overall_model_fit
-    results['summary_table'] = summary_table.round(3)
+    # results['summary_table'] = summary_table.round(3)
     results['coefficients_table'] = coefficients_table.round(3)
     results['diagnostics_table'] = diagnostics_table.round(3)
+    results['residuals_table'] = residuals_table
+
     return results

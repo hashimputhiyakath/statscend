@@ -76,11 +76,10 @@ A dictionary with four pandas DataFrames containing the results of the regressio
 - coefficients_table : Pandas DataFrame<br/>
   A table of the regression coefficients, including the unstandardized coefficients, their standard errors, the standardized coefficients, and the p-values.
 
-- summary_table : Pandas DataFrame<br/>
-  A summary of the regression results, including the dependent variable, the R-squared value, the adjusted R-squared value, the F-statistic, and the p-value.
-
 - diagnostics_table : Pandas DataFrame<br/>
   A table of diagnostic statistics for the regression, including the Omnibus test, the Durbin-Watson statistic, the Jarque-Bera test, and the condition number.
+- residuals_table : Pandas DataFrame <br/>
+  A table containing the fitted values and residuals of the regression model. The "Fitted Values" column represents the predicted values obtained from the regression model for the corresponding input variables. The "Residuals" column represents the difference between the actual values and the predicted values, indicating the deviation or error in the model's predictions.
 
 #### Examples
 
