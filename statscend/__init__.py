@@ -5,6 +5,7 @@ from .mn_logistic_regression import mn_logistic_regression
 from .ordinal_regression import ordinal_regression
 from .vif import vif
 from .mahalanobis_distance import mahalanobis_distance
+from .manova import manova
 
 __all__ = [
     'data',
@@ -13,5 +14,6 @@ __all__ = [
     'mn_logistic_regression',
     'ordinal_regression',
     'vif',
-    'mahalanobis_distance'
+    'mahalanobis_distance',
+    'manova'
 ]
