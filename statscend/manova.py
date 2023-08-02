@@ -7,7 +7,7 @@ def manova(df, dvs, iv):
     # Subset the DataFrame with only the variables we need
     df = df[[iv] + dvs]
 
-    df.dropna(inplace=True)
+    df = df.dropna()
 
     # Run MANOVA
     maov = MANOVA.from_formula(f'{"+".join(dvs)} ~ {iv}', data=df)
